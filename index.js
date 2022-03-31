@@ -19,17 +19,24 @@ const fs = require('fs');
 //  Si el error existe se manda por consola un mesaje mostrando
 //      el error
 //  Si no, se manda por consola un mensaje "Archivo creado"
-
+/*
 fs.writeFile('./texto.txt','linea uno',function(err){
     if(err) {
         console.log(err);
     }
     console.log('Archivo creado');
 });
-
+*/
 //  La funcion se conoce como callback
 //  El codigo se conoce como codigo asincrono  
 
 // const result = fs.writefile('', ''); // Codigo bloqueante
 
-console.log('ultima linea de codigo');
+// console.log('ultima linea de codigo');
+
+fs.readFile('./texto.txt', function (err, data){
+    if (err){                     //  
+        console.log(err);
+    };
+    console.log(data.toString()); // toString es un metodo de JS para comvertir datos a string
+});
