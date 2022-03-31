@@ -1,5 +1,5 @@
 const y1 = 1;
-const y2 = 1;
+const y2 = 0;
 
 const math = require('./math.js');
 
