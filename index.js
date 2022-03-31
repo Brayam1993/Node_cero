@@ -1,42 +1,25 @@
-// 1. Se require modulo file sistem
-// 2. Se guarda en constante con el mismo nombre del modulo
-// 2.1 dos metodos principales del modulo se usa 
-//     para poder crear archivos nuevos y poder leerlos
+// Se manda a llamar modulo http de node y se guarda en 
+//  constante con el mismo nombre
+const http = require('http'); 
+const colors = require('colors');
+// Se llama al modulo http con la funcion createServer
+// createServer es un metodo que va a tomar tiempo de creacion
+// la funcion tiene un parametro 
 
-const fs = require('fs'); 
+const handleServer = function(req, res) { // la funcion tiene dos parametros
+    // Se guarda la funcion en una constante llamada handleServer
+    res.writeHead(200, {'Content-type': 'text/html'});
+    res.write('<h1>Esto es un texto<h1>'); // A quien 
+                //  consulte el servidor se le responde
+                //  atraves del metodo write 
+                //  Se responde <h1> Hola ...   
+    res.end();  //  Una vez que a mandado la respuesta   
+                //    la respuesta tiene que terminar       
+};
 
-//  Se empieza creando un nuevo archivo
-//  Desde -*-modulo-*- fs se llama al metodo writefile
-//  El -*-metodo-*- write file es para poder escribir un archivo
-//  El metodo write file recibe el -*-parametro-*- nombre del 
-//      archivo que se llama texto.tx y recibe la direccion de 
-//      donde se quiere crear. 
-//      Como se crea en el mismo proyecto se coloca ./
-//  Como segundo parametro se pasa el contenido.
-//  Recibe un parametro mas, un callback -*-* Funcion 
-//      que se ejecuta cuando ha terminado el proceso anterior
-//  La funcion recibe el parametro err
-//  Si el error existe se manda por consola un mesaje mostrando
-//      el error
-//  Si no, se manda por consola un mensaje "Archivo creado"
-/*
-fs.writeFile('./texto.txt','linea uno',function(err){
-    if(err) {
-        console.log(err);
-    }
-    console.log('Archivo creado');
-});
-*/
-//  La funcion se conoce como callback
-//  El codigo se conoce como codigo asincrono  
-
-// const result = fs.writefile('', ''); // Codigo bloqueante
-
-// console.log('ultima linea de codigo');
-
-fs.readFile('./texto.txt', function (err, data){
-    if (err){                     //  
-        console.log(err);
-    };
-    console.log(data.toString()); // toString es un metodo de JS para comvertir datos a string
+const server = http.createServer(handleServer); // Una vez a sido inicializado se ejecuta el 
+                 //  metodo listen y se ejecuta en el puerto
+                 //  3000   
+server.listen(3000, function() {
+    console.log('Server on port 3000'.yellow);
 });
