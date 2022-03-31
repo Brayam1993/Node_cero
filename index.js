@@ -1,12 +1,6 @@
-const y1 = 1;
-const y2 = 0;
+const os = require('os'); // llamando modulo os de node
 
-const math = require('./math.js');
-
-console.log(math);
-/*
-console.log('add:',math.add(y1,y2));
-console.log('sub:',math.substract(y1,y2));
-console.log('mul:',math.multiply(y1,y2));
-console.log('div:',math.divide(y1,y2));
-*/
+console.log(os.platform()); // Se muestra por consola el metodo platform
+console.log(os.release());
+console.log('fee mem:',os.freemem(),'bytes');
+console.log('Tot mem:',os.totalmem(),'bytes');
