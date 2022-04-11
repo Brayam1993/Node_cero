@@ -1,3 +1,4 @@
+/*
 // Se manda a llamar modulo http de node y se guarda en 
 //  constante con el mismo nombre
 const http = require('http'); 
@@ -23,3 +24,18 @@ const server = http.createServer(handleServer); // Una vez a sido inicializado s
 server.listen(3000, function() {
     console.log('Server on port 3000'.yellow);
 });
+*/
+
+const express = require('express');
+const colors = require('colors');
+
+const server = express();
+
+server.get('/', (req, res) => {
+    res.send('<h1>Hola mundo con Express y node</h1>');
+    res.end();
+});
+
+server.listen(3000, () => {
+    console.log('Server on port 3000'. red);
+}); 
